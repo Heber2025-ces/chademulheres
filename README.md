@@ -1,1 +1,730 @@
-# index
+[index.html](https://github.com/user-attachments/files/26471350/index.html)
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição — Chá de Mulheres · CES</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #111D35;
+    --navy-mid:   #1B2D50;
+    --navy-light: #243660;
+    --blue:       #2B4070;
+    --gold:       #C9A852;
+    --gold-light: #E2C97E;
+    --gold-pale:  #F0E0A8;
+    --white:      #FFFFFF;
+    --off-white:  #F4F6FA;
+    --muted:      #8EA3C0;
+    --border:     rgba(201,168,82,0.2);
+    --border-hover: rgba(201,168,82,0.5);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOPO ── */
+  .topo {
+    background: linear-gradient(175deg, #0D1828 0%, #1B2D50 45%, #243660 100%);
+    padding: 3.5rem 1.5rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .topo-glow {
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse at center, rgba(201,168,82,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .topo-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(201,168,82,0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .topo-inner { position: relative; z-index: 1; }
+
+  .evento-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border-hover);
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    margin-bottom: 2rem;
+  }
+
+  .coroa-svg {
+    width: 90px;
+    height: auto;
+    margin: 0 auto 1.2rem;
+    display: block;
+    filter: drop-shadow(0 0 18px rgba(201,168,82,0.55));
+  }
+
+  .topo-tema {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    color: var(--gold-light);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .topo h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .topo-info {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .topo-info-item {
+    padding: 0.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .topo-info-item + .topo-info-item {
+    border-left: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .topo-info-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .topo-info-value {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── CARD FORM ── */
+  .form-wrapper {
+    flex: 1;
+    max-width: 580px;
+    width: 100%;
+    margin: -2.5rem auto 3rem;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .form-card {
+    background: #F4F6FA;
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,82,0.15);
+    overflow: hidden;
+    color: #111D35;
+  }
+
+  .form-card-header {
+    background: linear-gradient(135deg, #1B2D50, #243660);
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid rgba(201,168,82,0.2);
+  }
+
+  .form-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .form-card-sub {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .form-card-body {
+    padding: 2rem 2.5rem 2.5rem;
+    background: #F4F6FA;
+  }
+
+  /* ── FIELDS ── */
+  .field-group { margin-bottom: 1.35rem; }
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5A7090;
+    margin-bottom: 0.5rem;
+  }
+
+  label .obrig { color: #C9A852; margin-left: 2px; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1.5px solid #D8E0EC;
+    border-radius: 12px;
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.97rem;
+    color: var(--navy);
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,82,0.15);
+  }
+
+  input::placeholder, textarea::placeholder { color: #A8BAD0; }
+
+  textarea { resize: vertical; min-height: 90px; }
+
+  .select-wrap { position: relative; }
+
+  .select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 1.1rem; top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #8EA3C0;
+    pointer-events: none;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
+
+  /* ── RADIO CARDS PAGAMENTO ── */
+  .radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .radio-label { position: relative; cursor: pointer; }
+
+  .radio-label input {
+    position: absolute;
+    opacity: 0; width: 0; height: 0;
+  }
+
+  .radio-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1rem 0.75rem;
+    border: 1.5px solid #D8E0EC;
+    border-radius: 12px;
+    background: var(--white);
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .radio-card-icon { font-size: 1.4rem; }
+
+  .radio-card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .radio-card-sub {
+    font-size: 0.75rem;
+    color: #8EA3C0;
+  }
+
+  .radio-label input:checked + .radio-card {
+    border-color: var(--gold);
+    background: rgba(201,168,82,0.06);
+    box-shadow: 0 0 0 3px rgba(201,168,82,0.12);
+  }
+
+  .radio-label input:checked + .radio-card .radio-card-title { color: #8B7030; }
+
+  /* ── DIVIDER ── */
+  .field-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.8rem 0 1.4rem;
+  }
+
+  .field-divider span {
+    height: 1px; flex: 1;
+    background: #D8E0EC;
+  }
+
+  .field-divider p {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8EA3C0;
+    white-space: nowrap;
+  }
+
+  /* ── SUBMIT ── */
+  .btn-submit {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, #1B2D50, #243660);
+    color: var(--gold-light);
+    border: 1px solid rgba(201,168,82,0.4);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(135deg, #243660, #2B4070);
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(27,45,80,0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-submit.loading { pointer-events: none; opacity: 0.7; }
+
+  .form-nota {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #8EA3C0;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  /* ── CONFIRMAÇÃO ── */
+  .confirmacao {
+    display: none;
+    text-align: center;
+    padding: 3rem 2.5rem;
+    background: #F4F6FA;
+    color: var(--navy);
+  }
+
+  .confirmacao.ativa { display: block; }
+  .form-card-body.oculto { display: none; }
+  .form-card-header.oculto { display: none; }
+
+  .conf-icone-wrap {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1B2D50, #243660);
+    border: 2px solid rgba(201,168,82,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+  }
+
+  .conf-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .conf-titulo em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .conf-sub {
+    font-size: 0.95rem;
+    color: #5A7090;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .conf-codigo {
+    display: inline-block;
+    background: linear-gradient(135deg, #1B2D50, #243660);
+    border: 1px solid rgba(201,168,82,0.35);
+    border-radius: 16px;
+    padding: 1.2rem 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .conf-codigo-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .conf-codigo-valor {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+  }
+
+  .conf-versiculo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--navy-mid);
+    line-height: 1.7;
+    border-top: 1px solid #D8E0EC;
+    padding-top: 1.5rem;
+  }
+
+  .conf-ref {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: #8EA3C0;
+    display: block;
+    margin-top: 0.4rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0D1828;
+    border-top: 1px solid rgba(201,168,82,0.12);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-coroa { font-size: 1.2rem; margin-bottom: 0.4rem; display: block; }
+
+  .footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-meta {
+    font-size: 0.75rem;
+    color: rgba(142,163,192,0.5);
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+  }
+
+  /* ── ANIMS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .topo-inner { animation: fadeUp 0.7s ease both; }
+  .form-card  { animation: fadeUp 0.7s 0.15s ease both; }
+
+  @keyframes popIn {
+    0%   { transform: scale(0.6); opacity: 0; }
+    70%  { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .conf-icone-wrap.animar { animation: popIn 0.5s ease both; }
+</style>
+</head>
+<body>
+
+<!-- TOPO -->
+<header class="topo">
+  <div class="topo-dots"></div>
+  <div class="topo-glow"></div>
+  <div class="topo-inner">
+    <span class="evento-tag">Comunidade Evangélica de Salvador · CES</span>
+
+    <svg class="coroa-svg" viewBox="0 0 120 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Base band -->
+      <rect x="8" y="48" width="104" height="14" rx="3" fill="#C9A852" opacity="0.9"/>
+      <!-- Band details -->
+      <rect x="8" y="48" width="104" height="4" rx="2" fill="#E2C97E" opacity="0.6"/>
+      <!-- Crown body left -->
+      <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48 Z" fill="#C9A852"/>
+      <!-- Crown shine overlay -->
+      <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48 Z" fill="url(#crownShine)" opacity="0.4"/>
+      <!-- Crown outline -->
+      <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48" stroke="#E2C97E" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+      <!-- Gems on points -->
+      <circle cx="60" cy="8" r="4" fill="#F0E0A8" stroke="#C9A852" stroke-width="1"/>
+      <circle cx="32" cy="38" r="3" fill="#E2C97E" stroke="#C9A852" stroke-width="0.8"/>
+      <circle cx="88" cy="38" r="3" fill="#E2C97E" stroke="#C9A852" stroke-width="0.8"/>
+      <circle cx="8" cy="20" r="3" fill="#C9A852" stroke="#E2C97E" stroke-width="0.8"/>
+      <circle cx="112" cy="20" r="3" fill="#C9A852" stroke="#E2C97E" stroke-width="0.8"/>
+      <!-- Band gems -->
+      <circle cx="35" cy="55" r="3.5" fill="#F0E0A8" stroke="#C9A852" stroke-width="0.8"/>
+      <circle cx="60" cy="55" r="4" fill="#F0E0A8" stroke="#C9A852" stroke-width="0.8"/>
+      <circle cx="85" cy="55" r="3.5" fill="#F0E0A8" stroke="#C9A852" stroke-width="0.8"/>
+      <!-- Gradient def -->
+      <defs>
+        <linearGradient id="crownShine" x1="60" y1="8" x2="60" y2="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#C9A852" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <p class="topo-tema">"A mulher segundo o coração de Deus"</p>
+    <h1>Chá de Mulheres</h1>
+
+    <div class="topo-info">
+      <div class="topo-info-item">
+        <span class="topo-info-label">Data</span>
+        <span class="topo-info-value">11 ABRIL</span>
+      </div>
+      <div class="topo-info-item">
+        <span class="topo-info-label">Horário</span>
+        <span class="topo-info-value">17:30H</span>
+      </div>
+      <div class="topo-info-item">
+        <span class="topo-info-label">Local</span>
+        <span class="topo-info-value">CES</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FORM -->
+<div class="form-wrapper">
+  <div class="form-card">
+
+    <div class="form-card-header" id="formHeader">
+      <p class="form-card-title">Faça sua inscrição</p>
+      <p class="form-card-sub">Preencha os dados abaixo e garanta sua vaga. As vagas são limitadas!</p>
+    </div>
+
+    <div class="form-card-body" id="formBody">
+      <form id="inscricaoForm" novalidate>
+
+        <div class="field-group">
+          <label>Nome completo <span class="obrig">*</span></label>
+          <input type="text" id="nome" placeholder="Como você se chama?" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label>WhatsApp <span class="obrig">*</span></label>
+            <input type="tel" id="whatsapp" placeholder="(71) 9 0000-0000" required>
+          </div>
+          <div class="field-group">
+            <label>Idade</label>
+            <input type="text" id="idade" placeholder="Ex: 32">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com">
+        </div>
+
+        <div class="field-group">
+          <label>Como soube do evento? <span class="obrig">*</span></label>
+          <div class="select-wrap">
+            <select id="origem" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="instagram">Instagram</option>
+              <option value="indicacao">Indicação de amiga</option>
+              <option value="igreja">Comunicação da Igreja</option>
+              <option value="whatsapp">Grupo de WhatsApp</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-divider">
+          <span></span><p>Forma de pagamento</p><span></span>
+        </div>
+
+        <div class="field-group">
+          <label>Como você vai pagar? <span class="obrig">*</span></label>
+          <div class="radio-group" style="grid-template-columns: 1fr 1fr 1fr;">
+            <label class="radio-label">
+              <input type="radio" name="pagamento" value="pix" required>
+              <div class="radio-card">
+                <span class="radio-card-icon">⬡</span>
+                <span class="radio-card-title">PIX</span>
+                <span class="radio-card-sub">Confirmação rápida</span>
+              </div>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="pagamento" value="cartao">
+              <div class="radio-card">
+                <span class="radio-card-icon">◻</span>
+                <span class="radio-card-title">Cartão</span>
+                <span class="radio-card-sub">Na entrada do evento</span>
+              </div>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="pagamento" value="dinheiro">
+              <div class="radio-card">
+                <span class="radio-card-icon">◇</span>
+                <span class="radio-card-title">Dinheiro</span>
+                <span class="radio-card-sub">Na entrada do evento</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-divider">
+          <span></span><p>Opcional</p><span></span>
+        </div>
+
+        <div class="field-group">
+          <label>Alguma observação?</label>
+          <textarea id="obs" placeholder="Restrição alimentar, necessidade especial ou algo que queira nos contar..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="btnSubmit">
+          Confirmar inscrição →
+        </button>
+        <p class="form-nota">Ao se inscrever, você concorda em receber informações sobre o evento via WhatsApp.</p>
+
+      </form>
+    </div>
+
+    <!-- CONFIRMAÇÃO -->
+    <div class="confirmacao" id="confirmacao">
+      <div class="conf-icone-wrap" id="confIcon">
+        <svg width="36" height="24" viewBox="0 0 120 70" fill="none">
+          <rect x="8" y="48" width="104" height="14" rx="3" fill="#C9A852"/>
+          <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48 Z" fill="#C9A852"/>
+          <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48" stroke="#E2C97E" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+          <circle cx="60" cy="8" r="4" fill="#F0E0A8"/>
+          <circle cx="60" cy="55" r="4" fill="#F0E0A8"/>
+        </svg>
+      </div>
+      <h2 class="conf-titulo">Inscrição <em>confirmada!</em></h2>
+      <p class="conf-sub">
+        Que alegria ter você no Chá de Mulheres!<br>
+        Guarde seu código — você vai precisar dele na entrada.
+      </p>
+      <div class="conf-codigo">
+        <p class="conf-codigo-label">Seu código</p>
+        <p class="conf-codigo-valor" id="codigoGerado">CM-2026-0001</p>
+      </div>
+      <p class="conf-versiculo">
+        "Graciosa é a mulher que retém a honra."
+        <span class="conf-ref">— Provérbios 11:16</span>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <svg width="28" height="18" viewBox="0 0 120 70" fill="none" style="display:block;margin:0 auto 0.5rem;opacity:0.5">
+    <rect x="8" y="48" width="104" height="14" rx="3" fill="#C9A852"/>
+    <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48 Z" fill="#C9A852"/>
+    <path d="M8 48 L8 20 L32 38 L60 8 L88 38 L112 20 L112 48" stroke="#E2C97E" stroke-width="2" stroke-linejoin="round" fill="none"/>
+    <circle cx="60" cy="8" r="4" fill="#F0E0A8"/>
+  </svg>
+  <p class="footer-title">Chá de Mulheres · CES</p>
+  <p class="footer-meta">11 de abril · 17:30h · Comunidade Evangélica de Salvador</p>
+  <p class="footer-meta">© 2026 Comunidade Evangélica de Salvador · Todos os direitos reservados</p>
+</footer>
+
+<script>
+  // Máscara WhatsApp
+  document.getElementById('whatsapp').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length >= 7) v = `(${v.slice(0,2)}) ${v.slice(2,3)} ${v.slice(3,7)}-${v.slice(7)}`;
+    else if (v.length >= 3) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    e.target.value = v;
+  });
+
+  function gerarCodigo() {
+    return `CM-2026-${String(Math.floor(Math.random() * 9000) + 1000)}`;
+  }
+
+  document.getElementById('inscricaoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome      = document.getElementById('nome').value.trim();
+    const whatsapp  = document.getElementById('whatsapp').value.trim();
+    const origem    = document.getElementById('origem').value;
+    const pagamento = document.querySelector('input[name="pagamento"]:checked');
+
+    let erro = '';
+    if (!nome)               erro = 'Por favor, informe seu nome completo.';
+    else if (whatsapp.length < 14) erro = 'Por favor, informe um WhatsApp válido.';
+    else if (!origem)        erro = 'Por favor, selecione como soube do evento.';
+    else if (!pagamento)     erro = 'Por favor, escolha a forma de pagamento.';
+
+    if (erro) { alert(erro); return; }
+
+    const btn = document.getElementById('btnSubmit');
+    btn.textContent = 'Enviando...';
+    btn.classList.add('loading');
+
+    setTimeout(() => {
+      document.getElementById('formHeader').classList.add('oculto');
+      document.getElementById('formBody').classList.add('oculto');
+      const conf = document.getElementById('confirmacao');
+      conf.classList.add('ativa');
+      document.getElementById('codigoGerado').textContent = gerarCodigo();
+      setTimeout(() => document.getElementById('confIcon').classList.add('animar'), 50);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1200);
+  });
+</script>
+</body>
+</html>
