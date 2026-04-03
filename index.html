@@ -595,13 +595,21 @@
 
         <div class="field-group">
           <label>Como você vai pagar? <span class="obrig">*</span></label>
-          <div class="radio-group">
+          <div class="radio-group" style="grid-template-columns: 1fr 1fr 1fr;">
             <label class="radio-label">
               <input type="radio" name="pagamento" value="pix" required>
               <div class="radio-card">
                 <span class="radio-card-icon">⬡</span>
                 <span class="radio-card-title">PIX</span>
                 <span class="radio-card-sub">Confirmação rápida</span>
+              </div>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="pagamento" value="cartao">
+              <div class="radio-card">
+                <span class="radio-card-icon">◻</span>
+                <span class="radio-card-title">Cartão</span>
+                <span class="radio-card-sub">Na entrada do evento</span>
               </div>
             </label>
             <label class="radio-label">
